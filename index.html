@@ -17,6 +17,8 @@
   <!-- Place favicon.ico in the root directory -->
 
   <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/shapes.css">
   <link rel="stylesheet" href="css/main.css">
 
@@ -24,11 +26,16 @@
 </head>
 
 <body>
-
-
-  <section class='shapes'>
-
-  </section>
+  <div class='layout'>
+    <section class='shapes'>
+      <header class='header'>
+        <a href='/' alt='maw-print logo' class='header__logo'>
+          <h1 class='sr-only'>maw prints</h1>
+        </a>
+        <p class='header__subline'>Artisan products made<br> by hand in Berlin.</p>
+      </header>
+    </section>
+  </div>
 
   <script src="js/vendor/modernizr-3.11.0.min.js"></script>
   <script src="js/plugins.js"></script>
