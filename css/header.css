@@ -1,0 +1,31 @@
+.header {
+    /* background: white; */
+}
+
+.header__logo {
+    background: url(../img/maw-logo.svg) no-repeat left bottom;
+    width: 146px;
+    height: 46px;
+    background-size: contain;
+    display: block;
+}
+
+.header__subline {
+    font-size: 10px;
+    margin: 0;
+    color: var(--grey)
+}
+
+@media only screen and (min-width: 35em) {
+    .header {
+        display: flex;
+        position: absolute;
+        margin: 30px 20px;
+    }
+
+    .header__logo {
+        margin-right: 10px;
+    }
+
+    .header__subline {}
+}
