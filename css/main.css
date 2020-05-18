@@ -1,7 +1,28 @@
+:root {
+  --font-reg: AkzidenzGroteskPro-Regular;
+  --font-med: AkzidenzGroteskPro-Md;
+
+
+  --grey: '#515151'
+}
+
 html {
   color: #222;
   font-size: 1em;
   line-height: 1.4;
+  font-family: var(--font-reg),
+    Arial,
+    Helvetica,
+    sans-serif;
+  font-size: 1em;
+}
+
+body {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /*
@@ -247,4 +268,22 @@ textarea {
   h3 {
     page-break-after: avoid;
   }
+}
+
+
+@font-face {
+  font-family: "AkzidenzGroteskPro-Md";
+  src: url("../fonts/AkzidGroProMed.woff") format("woff"),
+    url("../fonts/AkzidGroProMed.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AkzidenzGroteskPro-Regular";
+
+  src: url("../fonts/AkzidGroProReg.woff/fonts/AkzidGroProReg.woff") format("woff"),
+    url("../fonts/AkzidGroProReg.woff2/fonts/AkzidGroProReg.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
