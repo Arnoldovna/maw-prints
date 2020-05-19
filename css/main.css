@@ -6,6 +6,16 @@
   --grey: '#515151'
 }
 
+canvas {
+
+  display: inline-block;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  z-index: -1;
+}
+
 html {
   color: #222;
   font-size: 1em;
@@ -15,6 +25,11 @@ html {
     Helvetica,
     sans-serif;
   font-size: 1em;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 body {

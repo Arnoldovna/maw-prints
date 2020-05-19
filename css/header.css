@@ -1,5 +1,8 @@
 .header {
     /* background: white; */
+    margin: 30px 20px;
+    position: absolute;
+
 }
 
 .header__logo {
