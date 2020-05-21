@@ -12,7 +12,9 @@ canvas {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: auto;
+
+
+  /* height: auto; */
   z-index: -1;
 }
 
@@ -25,7 +27,7 @@ html {
     Helvetica,
     sans-serif;
   font-size: 1em;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -297,8 +299,8 @@ textarea {
 @font-face {
   font-family: "AkzidenzGroteskPro-Regular";
 
-  src: url("../fonts/AkzidGroProReg.woff/fonts/AkzidGroProReg.woff") format("woff"),
-    url("../fonts/AkzidGroProReg.woff2/fonts/AkzidGroProReg.woff2") format("woff2");
+  src: url("../fonts/AkzidGroProReg.woff") format("woff"),
+    url("../fonts/AkzidGroProReg.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
