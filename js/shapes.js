@@ -3,6 +3,8 @@
 const {
     Engine,
     Render,
+    Bounds,
+    Events,
     Bodies,
     Body,
     Runner,
@@ -33,10 +35,16 @@ const render = Render.create({
 });
 
 //view percentage
+// function percentX(percent) {
+//     return Math.round(w / 100 * percent);
+// }
 function percentX(percent) {
     return Math.round(percent / 100 * w);
 }
 
+// function percentY(percent) {
+//     return Math.round(h / 100 * percent);
+// }
 function percentY(percent) {
     return Math.round(percent / 100 * h);
 }
@@ -48,19 +56,20 @@ const bodies = engine.world.bodies;
 shapes.forEach((el, i) => {
 
     const {
-        name,
         percW,
         percH,
         width,
         height,
         radius,
         sprite,
+        url,
         mobile,
         tablet,
         desktop
     } = el;
-    console.log('percentX', name, percentX(percW));
-    World.add(engine.world, Bodies.rectangle(percW, percH, width, height, {
+
+
+    World.add(engine.world, Bodies.rectangle(percentX(percW), percentY(percH), width, height, {
         chamfer: {
             radius: radius,
         },
@@ -69,36 +78,37 @@ shapes.forEach((el, i) => {
                 texture: "../../img/" + sprite,
             },
         },
+        url: url
     }));
 
-    if (w < 700) {
-        bodies[i].render.sprite.xScale = bodies[i].render.sprite.xScale * mobile;
-        bodies[i].render.sprite.yScale = bodies[i].render.sprite.yScale * mobile;
-        Body.scale(bodies[i], mobile, mobile);
-    } else if (w < 1024) {
-        bodies[i].render.sprite.xScale = bodies[i].render.sprite.xScale * tablet;
-        bodies[i].render.sprite.yScale = bodies[i].render.sprite.yScale * tablet;
-        Body.scale(bodies[i], tablet, tablet);
 
-    } else {
-        return;
-    }
+
+
+    //checks screen size and reduces shapes accordingly
+    const size = ((w <= 700) ? (mobile) : ((w <= 1024) ? (tablet) : (
+        desktop)));
+
+    bodies[i].render.sprite.xScale = bodies[i].render.sprite.xScale * size;
+    bodies[i].render.sprite.yScale = bodies[i].render.sprite.yScale * size;
+    Body.scale(bodies[i], size, size);
 });
 
 
 //create room
-const wallOptions = {
+const staticOptions = {
     isStatic: true,
-    // render: {
-    //     visible: false,
-    // }
+    render: {
+        visible: false,
+    }
 };
+const logoWidth = (w <= 700) ? 250 : 450;
+const logoHeight = (w <= 700) ? 130 : 60;
 
-const ground = Bodies.rectangle(w / 2, h + 50, w + 100, 100, wallOptions);
-const ceiling = Bodies.rectangle(w / 2, -50, w + 100, 100, wallOptions);
-const leftWall = Bodies.rectangle(-50, h / 2, 100, h + 10, wallOptions);
-const rightWall = Bodies.rectangle(w + 50, h / 2, 100, h + 10, wallOptions);
-
+const ground = Bodies.rectangle(w / 2, h + 50, w + 100, 100, staticOptions);
+const ceiling = Bodies.rectangle(w / 2, -50, w + 100, 100, staticOptions);
+const leftWall = Bodies.rectangle(-50, h / 2, 100, h + 10, staticOptions);
+const rightWall = Bodies.rectangle(w + 50, h / 2, 100, h + 10, staticOptions);
+const Logo = Bodies.rectangle(50, 55, logoWidth, logoHeight, staticOptions);
 //create mouse dynamics
 const mouseControl = MouseConstraint.create(engine, {
     element: sectionTag,
@@ -110,17 +120,41 @@ const mouseControl = MouseConstraint.create(engine, {
     },
 });
 
+
+//on click go to hyperlink
+Events.on(mouseControl, 'mouseup', function (event) {
+    const mConstraint = event.source;
+    // console.log('mConstraint', mConstraint.bodyB);
+    if (!mConstraint.bodyB) {
+        for (i = 0; i < bodies.length; i++) {
+            var body = bodies[i];
+            if (Bounds.contains(body.bounds, mConstraint.mouse.position)) {
+                var bodyUrl = body.url;
+                // console.log('body.url', bodyUrl);
+                if (bodyUrl != undefined) {
+                    window.open(bodyUrl, '_blank');
+                    // console.log('Hyperlink was opened');
+                }
+                break;
+            }
+        }
+    }
+})
+
+
+//add to world
 World.add(engine.world, [
     ground,
     ceiling,
     leftWall,
     rightWall,
+    Logo,
     mouseControl,
 ]);
 
 
 
-console.log('bodies', bodies);
+// console.log('bodies', bodies);
 
 //on click add a new shape
 // document.addEventListener('click', function (event) {
@@ -137,34 +171,8 @@ console.log('bodies', bodies);
 Engine.run(engine);
 Render.run(render);
 
-// window.addEventListener("resize", function () {
-// Engine.clear(engine);
-// Render.stop(render);
 
-// Body.setPosition(ground, {
-//     x: w / 2,
-//     y: h
-// });
-// Body.scale(rightWall, {
-//     scaleY: h * 2
-// });
-// Body.setPosition(rightWall, {
-//     x: w - 200,
-//     y: h
-// });
-// Body.setPosition(leftWall, {
-//     x: 0,
-//     y: h
-// });
-
-// });
-// window.addEventListener('resize', function () {
-//     console.log('heeee resize', engine);
-//     Engine.clear(engine);
-//     console.log('done');
-// })
-
-//Gravity
+//add Gravity
 let time = 0;
 const changeGravity = function () {
     time = time + 0.008;
@@ -174,7 +182,7 @@ const changeGravity = function () {
     const gravity = Math.cos(time);
     engine.world.gravity.y = gravity;
     engine.world.gravity.x = gravityS;
-    requestAnimationFrame(changeGravity)
+    requestAnimationFrame(changeGravity);
 };
 
 changeGravity();
