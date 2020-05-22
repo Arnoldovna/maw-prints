@@ -1,50 +1,51 @@
 const shapes = [{
-
-        "sprite": 'about.png',
+        "name": 'about',
+        "sprite": 'about.svg',
         "radius": [0, 0, 0, 0],
         "percW": 50,
         "percH": 5,
-        "width": 102,
+        "width": 112,
         "height": 50,
         "mobile": 0.7,
         "tablet": 0.9,
         "desktop": 1,
-        "url": 'https://www.google.de/'
+        "url": 'about.html'
     },
 
     {
 
-        "sprite": 'showcase.png',
+        "name": 'showcase',
+        "sprite": 'showcase.svg',
         "radius": [0, 0, 0, 0],
         "percW": 65,
         "percH": 5,
-        "width": 172,
+        "width": 182,
         "height": 42,
         "mobile": 0.7,
         "tablet": 0.9,
         "desktop": 1,
-        "url": 'https://www.google.de/'
+        "url": '/showcase.html'
     },
     {
-
-        "sprite": 'contact.png',
+        "name": 'contact',
+        "sprite": 'contact.svg',
         "radius": [0, 0, 0, 0],
         "percW": 75,
         "percH": 5,
-        "width": 128,
+        "width": 138,
         "height": 42,
         "mobile": 0.7,
         "tablet": 0.9,
         "desktop": 1,
-        "url": 'https://www.google.de/'
+        "url": '/contact.html/'
     },
     {
-
-        "sprite": 'instagram.png',
+        "name": 'instagram',
+        "sprite": 'instagram.svg',
         "radius": [0, 0, 0, 0],
         "percW": 95,
         "percH": 5,
-        "width": 170,
+        "width": 180,
         "height": 42,
         "mobile": 0.7,
         "tablet": 0.9,
@@ -52,7 +53,49 @@ const shapes = [{
         "url": 'https://www.instagram.com/arnoldovnawilgelm/'
     },
     {
+        "name": 'eye',
+        "sprite": 'eye.svg',
+        "radius": [0, 0, 0, 0],
+        "percW": 20,
+        "percH": 30,
+        "width": 178,
+        "height": 122,
+        "mobile": 0.7,
+        "tablet": 0.9,
+        "desktop": 1,
+        // "url": '/showcase.html',
+    },
+    {
+        "name": 'pen',
+        "sprite": 'pen.svg',
+        "radius": [0, 0, 0, 0],
+        "percW": 20,
+        "percH": 30,
+        "width": 200,
+        "height": 40,
+        "mobile": 0.7,
+        "tablet": 0.9,
+        "desktop": 1,
+        // "friction":
+        // "url": '/contact.html',
+    },
+    {
+        "name": 'scissors',
+        "sprite": 'scissors.svg',
+        "radius": [0, 0, 0, 0],
+        "percW": 60,
+        "percH": 80,
+        "width": 202,
+        "height": 141,
+        "mobile": 0.7,
+        "tablet": 0.9,
+        "desktop": 1,
+        // "friction":
+        // "url": '/contact.html',
+    },
 
+    {
+        "name": 'form1',
         "sprite": 'form_1.png',
         "radius": [10, 50, 25, 25],
         "percW": 40,
@@ -63,7 +106,7 @@ const shapes = [{
         "tablet": 0.7,
         "desktop": 1,
     }, {
-
+        "name": 'form2',
         "sprite": 'form_2.png',
         "radius": [50, 10, 40, 10],
         "percW": 70,
@@ -74,7 +117,7 @@ const shapes = [{
         "tablet": 0.7,
         "desktop": 1,
     }, {
-
+        "name": 'form3',
         "sprite": 'form_3.png',
         "radius": [50, 10, 100, 70],
         "percW": 80,
@@ -85,7 +128,7 @@ const shapes = [{
         "tablet": 0.7,
         "desktop": 1,
     }, {
-
+        "name": 'form4',
         "sprite": 'form_4.png',
         "radius": [100, 20, 100, 40],
         "percW": 500,
@@ -96,7 +139,7 @@ const shapes = [{
         "tablet": 0.7,
         "desktop": 1,
     }, {
-
+        "name": 'form5',
         "sprite": 'form_5.png',
         "radius": [100, 40, 30, 40],
         "percW": 80,
@@ -107,7 +150,7 @@ const shapes = [{
         "tablet": 0.7,
         "desktop": 1,
     }, {
-
+        "name": 'form6',
         "sprite": 'form_6.png',
         "radius": [100, 20, 60, 40],
         "percW": 50,
@@ -118,7 +161,7 @@ const shapes = [{
         "tablet": 0.7,
         "desktop": 1,
     }, {
-
+        "name": 'form7',
         "sprite": 'form_7.png',
         "radius": [100, 100, 100, 100],
         "percW": 20,
@@ -130,7 +173,7 @@ const shapes = [{
         "desktop": 1,
     },
     {
-
+        "name": 'form8',
         "sprite": 'form_8.png',
         "radius": [100, 100, 30, 40],
         "percW": 20,
@@ -142,7 +185,7 @@ const shapes = [{
         "desktop": 1,
     },
     {
-
+        "name": 'form9',
         "sprite": 'form_9.png',
         "radius": [0, 0, 40, 40],
         "percW": 20,
@@ -154,7 +197,7 @@ const shapes = [{
         "desktop": 1,
     },
     {
-
+        "name": 'form10',
         "sprite": 'form_10.png',
         "radius": [50, 40, 40, 40],
         "percW": 80,
@@ -166,7 +209,7 @@ const shapes = [{
         "desktop": 1,
     },
     {
-
+        "name": 'form11',
         "sprite": 'form_11.png',
         "radius": [20, 100, 0, 60],
         "percW": 70,
