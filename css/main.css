@@ -34,6 +34,10 @@ html {
   align-items: center;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 body {
   overflow: hidden;
   width: 100%;
