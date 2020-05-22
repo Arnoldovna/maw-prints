@@ -1,9 +1,9 @@
 //matter.js
-
 const {
     Engine,
     Render,
     Bounds,
+    Query,
     Events,
     Bodies,
     Body,
@@ -35,20 +35,13 @@ const render = Render.create({
 });
 
 //view percentage
-// function percentX(percent) {
-//     return Math.round(w / 100 * percent);
-// }
 function percentX(percent) {
     return Math.round(percent / 100 * w);
 }
 
-// function percentY(percent) {
-//     return Math.round(h / 100 * percent);
-// }
 function percentY(percent) {
     return Math.round(percent / 100 * h);
 }
-
 
 //create Bodies from shapes-data.js
 const bodies = engine.world.bodies;
@@ -56,6 +49,7 @@ const bodies = engine.world.bodies;
 shapes.forEach((el, i) => {
 
     const {
+        name,
         percW,
         percH,
         width,
@@ -68,7 +62,6 @@ shapes.forEach((el, i) => {
         desktop
     } = el;
 
-
     World.add(engine.world, Bodies.rectangle(percentX(percW), percentY(percH), width, height, {
         chamfer: {
             radius: radius,
@@ -78,11 +71,9 @@ shapes.forEach((el, i) => {
                 texture: "../../img/" + sprite,
             },
         },
-        url: url
+        url: url,
+        label: name,
     }));
-
-
-
 
     //checks screen size and reduces shapes accordingly
     const size = ((w <= 700) ? (mobile) : ((w <= 1024) ? (tablet) : (
@@ -101,14 +92,14 @@ const staticOptions = {
         visible: false,
     }
 };
-const logoWidth = (w <= 700) ? 250 : 450;
-const logoHeight = (w <= 700) ? 130 : 60;
+const logoWidth = (w <= 700) ? 350 : 560;
+const logoHeight = (w <= 700) ? 230 : 170;
 
 const ground = Bodies.rectangle(w / 2, h + 50, w + 100, 100, staticOptions);
 const ceiling = Bodies.rectangle(w / 2, -50, w + 100, 100, staticOptions);
 const leftWall = Bodies.rectangle(-50, h / 2, 100, h + 10, staticOptions);
 const rightWall = Bodies.rectangle(w + 50, h / 2, 100, h + 10, staticOptions);
-const Logo = Bodies.rectangle(50, 55, logoWidth, logoHeight, staticOptions);
+const Logo = Bodies.rectangle(0, 0, logoWidth, logoHeight, staticOptions);
 //create mouse dynamics
 const mouseControl = MouseConstraint.create(engine, {
     element: sectionTag,
@@ -119,7 +110,6 @@ const mouseControl = MouseConstraint.create(engine, {
         },
     },
 });
-
 
 //on click go to hyperlink
 Events.on(mouseControl, 'mouseup', function (event) {
@@ -139,7 +129,151 @@ Events.on(mouseControl, 'mouseup', function (event) {
             }
         }
     }
-})
+});
+
+
+//make eye blink
+setInterval(function () {
+    bodies[4].render.sprite.texture = '../../img/eye-close.svg';
+    setTimeout(function () {
+        bodies[4].render.sprite.texture = '../../img/eye.svg';
+    }, 400);
+}, 5000);
+
+
+//animate scissors and pen
+function animate(i, file, time, sequenz) {
+    setInterval(function () {
+        bodies[i].render.sprite.texture = '../../img/' + file + '_1.svg';
+        setTimeout(function () {
+            bodies[i].render.sprite.texture = '../../img/' + file + '.svg';
+            setTimeout(function () {
+                bodies[i].render.sprite.texture = '../../img/' + file + '_1.svg';
+                setTimeout(function () {
+                    bodies[i].render.sprite.texture = '../../img/' + file + '.svg';
+                    setTimeout(function () {
+                        bodies[i].render.sprite.texture = '../../img/' + file + '_1.svg';
+                        setTimeout(function () {
+                            bodies[i].render.sprite.texture = '../../img/' + file + '.svg';
+                            setTimeout(function () {
+                                bodies[i].render.sprite.texture = '../../img/' + file + '_1.svg';
+                                setTimeout(function () {
+                                    bodies[i].render.sprite.texture = '../../img/' + file + '.svg';
+                                }, sequenz);
+                            }, sequenz);
+                        }, sequenz);
+                    }, sequenz);
+                }, sequenz);
+            }, sequenz);
+        }, sequenz);
+    }, time);
+}
+
+animate(5, 'pen', 7000, 50);
+animate(6, 'scissors', 5000, 200);
+
+
+//Add event with 'mousemove': HOVER menupoints
+Events.on(mouseControl, 'mousemove', function (event) {
+    var hoveredShape = Query.point(bodies, event.mouse.position);
+    var hoveredArray = [],
+        X = 2;
+    while (hoveredArray.length < X) {
+        hoveredArray.push(hoveredShape[0]);
+    }
+    // console.log('hoverrShp', hoveredShape);
+    hoveredArray.reduce((prev, curr) => {
+
+        if (prev == undefined) {
+            //no object hovered
+            bodies[0].render.sprite.texture = '../../img/about.svg';
+            bodies[1].render.sprite.texture = '../../img/showcase.svg';
+            bodies[2].render.sprite.texture = '../../img/contact.svg';
+            bodies[3].render.sprite.texture = '../../img/instagram.svg';
+            bodies[4].render.sprite.texture = '../../img/eye.svg';
+            bodies[5].render.sprite.texture = '../../img/pen.svg';
+            bodies[6].render.sprite.texture = '../../img/scissors.svg';
+            sectionTag.classList.remove("pointer");
+
+        } else if (prev != undefined && prev === curr) {
+            //object hovered
+
+            if (prev.label && curr.label === 'about' ||
+                prev.label && curr.label === 'contact' ||
+                prev.label && curr.label === 'showcase' ||
+                prev.label && curr.label === 'instagram'
+            ) {
+                sectionTag.classList.add("pointer");
+                console.log('ADD');
+            }
+            if (prev.label === 'about') {
+
+                bodies[0].render.sprite.texture = '../../img/about_l.svg';
+
+            } else if ((prev.label != 'about')) {
+                bodies[0].render.sprite.texture = '../../img/about.svg';
+
+
+            }
+
+            if (prev.label && curr.label === 'showcase') {
+
+                bodies[1].render.sprite.texture = '../../img/showcase_l.svg';
+
+
+            } else {
+                bodies[1].render.sprite.texture = '../../img/showcase.svg';
+
+            }
+
+
+            if (prev.label && curr.label === 'contact') {
+                bodies[2].render.sprite.texture = '../../img/contact_l.svg';
+
+
+            } else {
+                bodies[2].render.sprite.texture = '../../img/contact.svg';
+
+            }
+
+
+            if (prev.label && curr.label === 'instagram') {
+                bodies[3].render.sprite.texture = '../../img/instagram_l.svg';
+
+            } else {
+                bodies[3].render.sprite.texture = '../../img/instagram.svg';
+
+            }
+
+            if (prev.label && curr.label === 'eye') {
+                bodies[4].render.sprite.texture = '../../img/eye-close.svg';
+            } else {
+                bodies[4].render.sprite.texture = '../../img/eye.svg';
+            }
+
+            if (prev.label && curr.label === 'scissors') {
+                bodies[6].render.sprite.texture = '../../img/scissors_1.svg';
+            } else {
+                bodies[6].render.sprite.texture = '../../img/scissors.svg';
+            }
+
+            if (
+                prev.label && curr.label != 'about' &&
+                prev.label && curr.label != 'contact' &&
+                prev.label && curr.label != 'showcase' &&
+                prev.label && curr.label != 'instagram' &&
+                prev.label && curr.label != 'scissors'
+            ) {
+                console.log('REMOVE');
+                sectionTag.classList.remove("pointer");
+
+            }
+
+
+        } else return;
+
+    });
+});
 
 
 //add to world
@@ -153,21 +287,6 @@ World.add(engine.world, [
 ]);
 
 
-
-// console.log('bodies', bodies);
-
-//on click add a new shape
-// document.addEventListener('click', function (event) {
-//   console.log('click');
-//   const shape = createShape(event.pageX, event.pageY);
-//   World.add(engine.world, shape);
-// });
-
-// fit the render viewport to the scene
-
-
-// Runner.run(runner, engine);
-
 Engine.run(engine);
 Render.run(render);
 
@@ -175,7 +294,7 @@ Render.run(render);
 //add Gravity
 let time = 0;
 const changeGravity = function () {
-    time = time + 0.008;
+    time = time + 0.006;
 
 
     const gravityS = Math.sin(time);
