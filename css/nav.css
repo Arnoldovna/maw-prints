@@ -1,0 +1,68 @@
+.nav {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.nav__point {
+    position: relative;
+    font-family: var(--font);
+    font-weight: 500;
+    font-size: 21px;
+    color: black
+}
+
+
+.nav__point:after {
+    position: absolute;
+    content: url("../img/arrow_thin.svg");
+    top: 0;
+    left: -15px;
+    z-index: 1;
+    visibility: hidden;
+}
+
+.nav__point:hover:after {
+    visibility: visible;
+}
+
+.nav__point:before {
+    position: relative;
+    content: url("../img/corner-arrow_med.svg");
+    top: 0;
+    left: -15px;
+    visibility: hidden;
+}
+
+.nav__point.onSite:before {
+    visibility: visible;
+}
+
+@media only screen and (min-width: 640px) {
+    .nav__point {
+        font-size: 25px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .nav__point {
+        font-size: 30px;
+    }
+
+    .nav__point:after {
+        position: absolute;
+        content: url("../img/arrow_med.svg");
+        top: 0;
+        left: -15px;
+        z-index: 1;
+        visibility: hidden;
+    }
+
+    .nav__point:before {
+        position: relative;
+        content: url("../img/corner-arrow.svg");
+        top: 0;
+        left: -15px;
+        visibility: hidden;
+    }
+}
