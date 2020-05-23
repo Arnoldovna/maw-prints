@@ -37,7 +37,7 @@ const shapes = [{
         "mobile": 0.7,
         "tablet": 0.9,
         "desktop": 1,
-        "url": '/contact.html/'
+        "url": 'mailto:marina.wilhelm@icloud.com?subject=Enquiry MAW Print'
     },
     {
         "name": 'instagram',
@@ -85,8 +85,8 @@ const shapes = [{
         "radius": [0, 0, 0, 0],
         "percW": 60,
         "percH": 80,
-        "width": 202,
-        "height": 141,
+        "width": 222,
+        "height": 151,
         "mobile": 0.7,
         "tablet": 0.9,
         "desktop": 1,
