@@ -1,7 +1,5 @@
 .nav {
-    display: flex;
-    flex-direction: column;
-
+    display: none;
 }
 
 .nav__point {
@@ -39,6 +37,12 @@
 }
 
 @media only screen and (min-width: 640px) {
+    .nav {
+
+        display: flex;
+        flex-direction: column;
+    }
+
     .nav__point {
         font-size: 25px;
     }

@@ -1,5 +1,4 @@
 .header {
-    /* background: white; */
     margin: 30px 20px;
     position: absolute;
     display: flex;
@@ -8,13 +7,13 @@
 
 .header.page {
     display: flex;
+    flex-direction: column;
+    position: relative;
     justify-content: space-between;
-    margin: 20px 0 50px;
+    margin: 20px 0;
 }
 
-.header.relative {
-    position: relative;
-}
+
 
 .header__logo-wrapper {
     display: flex;
@@ -36,6 +35,10 @@
 }
 
 @media only screen and (min-width: 640px) {
+    .header.page {
+        flex-direction: row;
+    }
+
     .header__logo-wrapper {
 
         flex-direction: row;
