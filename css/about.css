@@ -2,31 +2,49 @@
     margin: 0 auto;
     max-width: 1024px;
     padding: 0 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 
 }
 
 .about__section {
-    margin: 50px 0;
+    margin: 30px 0 50px;
 }
 
 .about__text {
     font-size: 21px;
     font-family: var(--font);
     font-weight: 500;
-    /* margin-bottom: 50px; */
+}
+
+.about__content {
+    flex: 1 0 auto;
+}
+
+.about__text--italic {
+    font-style: italic;
+    position: relative;
+}
+
+.about__text--link {
+    position: relative;
+    font-style: normal;
+    right: -5px;
+    bottom: 5px;
+    margin-right: 4px;
+    font-size: 13px;
+    color: #2f2179;
+    font-weight: normal
+}
+
+.about__text--link:hover {
+    color: blue;
 
 }
 
-
-.about__text--italic a {
-
-    display: inline-block;
-    color: #909090;
-
-}
-
-.about__text--italic a:hover {
-    color: black
+.about__disclaimer {
+    padding-bottom: 30px;
 }
 
 .about__disclaimer--headline {
@@ -36,13 +54,20 @@
 .about__disclaimer--headline,
 .about__disclaimer--text {
     font-family: var(--font);
-
-    font-size: 9px;
+    font-size: 13px;
 }
 
 @media only screen and (min-width: 640px) {
     .about__text {
         font-size: 25px;
+    }
+
+    .about__text--link {
+        right: -6px;
+        bottom: 6px;
+        margin-right: 5px;
+        font-size: 16px;
+
     }
 
     .about {
@@ -51,6 +76,16 @@
 
     .about__section {
         margin: 60px 0;
+    }
+
+    .about__disclaimer {
+        margin-bottom: 50px;
+    }
+
+    .about__disclaimer--headline,
+    .about__disclaimer--text {
+        font-family: var(--font);
+        font-size: 12px;
     }
 }
 
@@ -68,6 +103,17 @@
         font-size: 30px;
     }
 
+    .about__text--link {
+        right: -7px;
+        bottom: 9px;
+
+        font-size: 17px;
+
+    }
+
+    .about__disclaimer {
+        margin-bottom: 80px;
+    }
 
     .about__disclaimer--headline,
     .about__disclaimer--text {
@@ -78,6 +124,10 @@
 @media only screen and (min-width: 1280px) {
     .about__section {
         margin: 90px 0;
+    }
+
+    .about__disclaimer {
+        margin-bottom: 100px;
     }
 }
 
