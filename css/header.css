@@ -27,6 +27,16 @@
     background-size: contain;
 }
 
+.header__logo.page {
+    background: url(../img/maw-logo.svg) no-repeat left top;
+    min-width: 146px;
+    min-height: 46px;
+    height: auto;
+    width: 18vw;
+    max-width: 220px;
+    background-size: contain;
+}
+
 .header__subline {
     font-size: 10px;
     margin: 0;
