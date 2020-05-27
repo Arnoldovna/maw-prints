@@ -1,0 +1,41 @@
+{
+    "0": {
+        "category": "Screenprints 156 cm x 117 cm ",
+        "products": [{
+                "name": "Wilhelm",
+                "img": "/img/products/stripes.png",
+                "img-in-use": "/img/products/dots.png"
+            },
+            {
+                "name": "Heinrich",
+                "img": "/img/products/stripes.png",
+                "img-in-use": "/img/products/dots.png"
+            },
+            {
+                "name": "Sigfried",
+                "img": "/img/products/stripes.png",
+                "img-in-use": "/img/products/dots.png"
+            }
+        ]
+    },
+    "1": {
+        "category": "Screenprints 85 cm x 124 cm ",
+        "products": [{
+                "name": "Simon",
+                "img": "/img/products/stripes.png",
+                "img-in-use": "/img/products/dots.png"
+            },
+            {
+                "name": "Hans",
+                "img": "/img/products/stripes.png",
+                "img-in-use": "/img/products/dots.png"
+            },
+            {
+                "name": "Peter",
+                "img": "/img/products/stripes.png",
+                "img-in-use": "/img/products/dots.png"
+            }
+        ]
+
+    }
+}
