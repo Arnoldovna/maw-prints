@@ -1,0 +1,15 @@
+<footer class='footer'>
+    <div class='footer__point-container'><span class='footer_arrow'></span><a href="/" alt="home page"
+            class="footer__point">home</a></div>
+    {% if page.title == 'about' %}
+    <div class='footer__point-container'><span class='footer_arrow'></span><a href="/showcase" alt="showcase page"
+            class="footer__point">showcase</a></div>
+    {%else if page.title == 'about'%}
+    <div class='footer__point-container'><span class='footer_arrow'></span><a href="/about" alt="about page"
+            class="footer__point">about</a></div>
+    {%endif%}
+    <div class='footer__point-container'><span class='footer_arrow'></span><a href="mailto:marina.wilhelm@icloud.com"
+            alt="send email" class="footer__point">contact</a></div>
+
+    <a href="https://www.instagram.com/arnoldovnawilgelm/" alt="instagram page" class="footer__point">instagram</a>
+</footer>

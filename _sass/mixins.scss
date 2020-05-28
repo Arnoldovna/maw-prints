@@ -1,0 +1,89 @@
+//breakpoints
+// example @include tablet{...}
+
+@mixin tablet {
+    @media only screen and (min-width: 640px) {
+        @content;
+    }
+}
+
+@mixin medium {
+    @media only screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media only screen and (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media only screen and (min-width: 1280px) {
+        @content;
+    }
+}
+
+
+
+//transition
+// example @include transition(color .3s ease)
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+//visually hidden
+// use class .visually-hidden
+
+%visuallyhidden {
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip: rect(0, 0, 0, 0);
+    position: absolute;
+}
+
+// .visually-hidden {
+//     @extend %visuallyhidden
+// }
+
+//keyframe animation
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($str) {
+    -webkit-animation: #{$str};
+    -moz-animation: #{$str};
+    -ms-animation: #{$str};
+    -o-animation: #{$str};
+    animation: #{$str};
+}

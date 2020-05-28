@@ -1,0 +1,26 @@
+- category: 'Screenprints 156 cm x 117 cm '
+  products:
+    - name: Wilhelm
+      img: '/assets/images/products/stripes.png'
+      imgOverlay: '/assets/images/products/dots.png'
+    - name: Heinrich
+      img: '/assets/images/products/stripes.png'
+      imgOverlay: '/assets/images/products/dots.png'
+    - name: Sigfried
+      img: '/assets/images/products/stripes.png'
+      imgOverlay: '/assets/images/products/dots.png'
+- category: 'Screenprints 85 cm x 124 cm '
+  products:
+    - name: Simon
+      img: '/assets/images/products/stripes.png'
+      imgOverlay: '/assets/images/products/dots.png'
+    - name: Hans
+      img: '/assets/images/products/stripes.png'
+      imgOverlay: '/assets/images/products/dots.png'
+    - name: Peter
+      img: '/assets/images/products/stripes.png'
+      imgOverlay: '/assets/images/products/dots.png'
+    - name: Hasso
+      img: '/assets/images/products/stripes.png'
+      imgOverlay: '/assets/images/products/dots.png'
+- category: 'Silk Bandanas'

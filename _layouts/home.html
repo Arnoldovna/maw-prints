@@ -1,0 +1,22 @@
+<html>
+{% include head.html %}
+
+<body>
+    <section class='shapes'>
+        <header class='header'>
+            <div class='header__logo-wrapper'>
+                <a href='/' alt='maw-print logo' class='header__logo'>
+                    <h1 class='sr-only'>maw prints</h1>
+                </a>
+                <p class='header__subline'>Artisan products made<br>by hand in Berlin.</p>
+            </div>
+        </header>
+    </section>
+
+    <script type="text/javascript" src="{{ base.url | prepend: site.url }}/assets/js/matter.min.js"></script>
+    <script type="text/javascript" src="{{ base.url | prepend: site.url }}/assets/js/matter-wrap.js"></script>
+    <script type="text/javascript" src="{{ base.url | prepend: site.url }}/assets/js/shapes-data.js"></script>
+    <script type="text/javascript" src="{{ base.url | prepend: site.url }}/assets/js/shapes.js"></script>
+</body>
+
+</html>

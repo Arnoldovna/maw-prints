@@ -1,0 +1,84 @@
+.header {
+    margin: 30px 20px;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header.page {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+
+
+.header__logo-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.header__logo {
+    background: url(../images/maw-logo.svg) no-repeat left bottom;
+    width: 146px;
+    height: 46px;
+    background-size: contain;
+}
+
+.header__logo.page {
+    background: url(../images/maw-logo.svg) no-repeat left top;
+    min-width: 146px;
+    min-height: 46px;
+    height: auto;
+    width: 18vw;
+    max-width: 220px;
+    background-size: contain;
+}
+
+.header__subline {
+    font-size: 10px;
+    margin: 0;
+    color: grey;
+    padding-top: 10px;
+}
+
+@media only screen and (min-width: 640px) {
+    .header.page {
+        flex-direction: row;
+    }
+
+    .header__logo-wrapper {
+
+        flex-direction: row;
+    }
+
+    .header.page {
+        margin: 30px 0 80px;
+    }
+
+    .header__subline {
+
+        padding-top: 0;
+        padding-left: 10px;
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+    .header.page {
+        margin: 40px 0 80px;
+    }
+
+
+}
+
+@media only screen and (min-width: 1024px) {
+    .header {
+        display: flex;
+        position: absolute;
+        margin: 30px 20px;
+    }
+
+}

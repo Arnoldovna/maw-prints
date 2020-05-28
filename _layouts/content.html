@@ -1,0 +1,17 @@
+<html>
+{% include head.html %}
+
+<body>
+
+    <div class='layout'>
+        <div class='layout__content'>
+            {% include header.html %}
+            {{content}}
+        </div>
+        {% include footer.html %}
+    </div>
+    <script type="text/javascript" src="{{ base.url | prepend: site.url }}/assets/js/showcase-data.js"></script>
+    <script type="text/javascript" src="{{ base.url | prepend: site.url }}/assets/js/showcase.js"></script>
+</body>
+
+</html>

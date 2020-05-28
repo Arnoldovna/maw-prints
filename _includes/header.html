@@ -1,0 +1,37 @@
+<header class='header page'>
+    <div class='header__logo-wrapper'>
+        <a href='/' alt='maw-print logo' class='header__logo page'>
+            <h1 class='sr-only'>maw prints</h1>
+        </a>
+        <p class='header__subline'>Artisan products made<br>by hand in Berlin.</p>
+    </div>
+    <nav class='footer header-nav'>
+        <div class='footer__point-container'><span class='footer_arrow'></span><a href="/" alt="home page"
+                class="footer__point">home</a></div>
+
+        {% if page.title == 'showcase' %}
+        <div class='footer__point-container'><span class='footer_arrow'></span><a href="/about" alt="about page"
+                class="footer__point">about</a></div>
+        {%else if page.title == 'about'%}
+        <div class='footer__point-container'><span class='footer_arrow'></span><a href="/showcase" alt="showcase page"
+                class="footer__point">showcase</a></div>
+        {%endif%}
+
+        <div class='footer__point-container'><span class='footer_arrow'></span><a
+                href="mailto:marina.wilhelm@icloud.com" alt="send email" class="footer__point">contact</a>
+        </div>
+        <a href="https://www.instagram.com/arnoldovnawilgelm/" alt="instagram page" class="footer__point">instagram</a>
+    </nav>
+
+
+
+    <nav class='nav'>
+        <a href="/" alt="home page" class='nav__point'>home</a>
+        <a href="/about" alt="about page" class="nav__point {% if page.title == 'about' %} onSite
+        {% endif %}">about</a>
+        <a href="/showcase" alt="showcase page"
+            class="nav__point {% if page.title == 'showcase' %} onSite {% endif %}">showcase</a>
+        <a href="mailto:marina.wilhelm@icloud.com" alt="send email" class="nav__point">contact</a>
+        <a href="https://www.instagram.com/arnoldovnawilgelm/" alt="instagram page" class="nav__point">instagram</a>
+    </nav>
+</header>
