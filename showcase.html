@@ -2,14 +2,14 @@
 layout: content
 title: showcase
 permalink: /showcase/
+
 ---
 
 {% for category in site.data.products %}
-<div class='showcase{% if category.products.size > 0  %}{{category.products.size}}{% else %} disabled {% endif %}'>
+<div class='showcase {% if category.products.size > 0  %} {% else %} disabled {% endif %}'>
     <div class='showcase__category'>
         <h2 class='showcase__category-name'>{{category.category}}</h2>
-        <p
-            class='showcase__category-item{% if category.products.size > 0  %}{{category.products.size}}{% else %}--soon{% endif %}'>
+        <p class='showcase__category-item{% if category.products.size > 0  %} {% else %}--soon{% endif %}'>
             {% if category.products.size > 0  %}
             {{category.products.size}} items
             {% else %}
@@ -23,10 +23,12 @@ permalink: /showcase/
             <li class="showcase__img-card">
                 <div class="showcase__poster-wrapper">
                     <div class='showcase__poster-cen'>
-                        <img src='{{product.img}}' alt='poster' class="showcase__poster" />
+                        <img src='{{ site.url }}{{ site.baseurl }}/assets/images/products/stripes.png' alt='poster'
+                            class="showcase__poster" />
                     </div>
                     <div class='showcase__poster-cen'>
-                        <img src='{{product.imgOverlay}}' alt='poster' class="showcase__poster-overlay" />
+                        <img src='{{ site.url }}{{ site.baseurl }}/assets/images/products/dots.png' alt='poster'
+                            class="showcase__poster-overlay" />
                     </div>
                 </div>
                 <p class="showcase__poster-name">{{product.name}}</p>

@@ -1,16 +1,27 @@
 @font-face {
-  font-family: "AkzidenzGroteskPro";
-  src: url("../../assets/fonts/AkzidGroProMed.woff") format("woff"),
-    url("../../assets/fonts/AkzidGroProMed.woff2") format("woff2");
+  font-family: "BergenText";
+  src: url("../../assets/fonts/BergenText-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BergenText";
+  src: url("../../assets/fonts/BergenText-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "BergenText";
+  src: url("../../assets/fonts/BergenText-SemiBold.woff") format("woff");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "AkzidenzGroteskPro";
-
-  src: url("../../assets/fonts/AkzidGroProReg.woff/fonts/AkzidGroProReg.woff") format("woff"),
-    url("../../assets/fonts/AkzidGroProReg.woff2/fonts/AkzidGroProReg.woff2") format("woff2");
-  font-weight: normal;
-  font-style: normal;
+  font-family: "BergenText";
+  src: url("../../assets/fonts/BergenText-SemiBoldItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
 }

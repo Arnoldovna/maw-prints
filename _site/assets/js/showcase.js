@@ -1,5 +1,5 @@
 // const category = document.getElementsByClassName('showcase')[0];
-const categories = document.querySelectorAll(".showcase");
+const categories = document.querySelectorAll(".showcase__category");
 [...categories].forEach((category, i) => {
 
     function collapseSection(element) {
@@ -53,6 +53,13 @@ const categories = document.querySelectorAll(".showcase");
             collapseSection(section);
             section.setAttribute('data-closed', 'true');
         }
+    });
+
+    window.addEventListener('resize', function (e) {
+        var content = document.getElementsByClassName('showcase__expandable')[i];
+
+        collapseSection(content);
+        content.setAttribute('data-closed', 'true');
     });
 
 });
