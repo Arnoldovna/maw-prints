@@ -286,7 +286,6 @@ World.add(engine.world, [
     mouseControl,
 ]);
 
-
 Engine.run(engine);
 Render.run(render);
 

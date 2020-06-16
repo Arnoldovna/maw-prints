@@ -9,6 +9,9 @@
     - name: Sigfried
       img: '/assets/images/products/stripes.png'
       imgOverlay: '/assets/images/products/dots.png'
+    - name: Simon
+      img: '/assets/images/products/stripes.png'
+      imgOverlay: '/assets/images/products/dots.png'
 - category: 'Screenprints 85 cm x 124 cm '
   products:
     - name: Simon
